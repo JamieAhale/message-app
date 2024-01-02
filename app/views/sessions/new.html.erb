@@ -4,19 +4,19 @@
   <div class="row g-0">
     <div class="col-md-6 d-flex flex-column align-items-center" style="border-right: 1px solid rgba(0, 0, 0, 0.1);">
       <!-- Login Form -->
-      <div class="card-body w-50">
-        <form class="text-center">
-          <div class="mb-3">
-            <label for="loginEmail" class="form-label fw-bold">Username</label>
-            <input type="email" class="form-control" id="loginEmail" placeholder="Enter username">
-          </div>
-          <div class="mb-3">
-            <label for="loginPassword" class="form-label fw-bold">Password</label>
-            <input type="password" class="form-control" id="loginPassword" placeholder="Password">
-          </div>
-          <button type="submit" class="btn btn-primary">Login</button>
-        </form>
-      </div>
+        <div class="card-body w-50">
+            <%= form_for(:session, url: login_path, html: { class: "text-center" }) do |form| %>
+                <div class="mb-3">
+                <%= form.label :username, class: 'form-label fw-bold' %>
+                <%= form.text_field :email, id: 'loginEmail', class: 'form-control', placeholder: 'Enter username' %>
+                </div>
+                <div class="mb-3">
+                <%= form.label :password, class: 'form-label fw-bold' %>
+                <%= form.password_field :password, id: 'loginPassword', class: 'form-control', placeholder: 'Password' %>
+                </div>
+                <%= form.button 'Login', class: 'btn btn-primary' %>
+            <% end %>
+        </div>
     </div>
     <div class="col-md-6 d-flex align-items-center justify-content-center">
       <!-- Signup Button -->
