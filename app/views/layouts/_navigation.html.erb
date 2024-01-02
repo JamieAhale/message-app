@@ -4,23 +4,32 @@
 </button>
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-    <li class="nav-item">
-        <%= link_to 'Chatroom', root_path, class: 'nav-link active' %>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Account
-        </a>
-        <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">View account</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <%= link_to 'Log in', login_path, class: 'dropdown-item' %>
-        <li><a class="dropdown-item" href="#">Log out</a></li>
-        <li><a class="dropdown-item" href="#">Sign up</a></li>
-        </ul>
-    </li>
+        <li class="nav-item">
+            <%= link_to 'Chatroom', root_path, class: 'nav-link active' %>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Account
+            </a>
+            <ul class="dropdown-menu">
+            <% if logged_in? %>
+                <li><a class="dropdown-item" href="#">View account</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><%= button_to 'Log out', logout_path, method: :delete, class: 'dropdown-item' %></li>
+            <% else %>
+                <li><%= link_to 'Log in', login_path, class: "dropdown-item" %></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Sign up</a></li>
+            <% end %>
+            </ul>
+        </li>
     </ul>
+    <% if !logged_in? %>
+        <%= link_to 'Log In', login_path, class: "btn btn-primary" %>
+    <% else %>
+        <%= button_to 'Log out', logout_path, method: :delete, class: "btn btn-primary" %>
+    <% end %>
 </div>

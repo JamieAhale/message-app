@@ -15,7 +15,7 @@
   <div class="row">
     <div class="col-md-9">
         <div class="card px-5 pb-5 pt-3" style="height: 450px;">
-            <p class="text-center"> Messages </p>
+            <p class="text-center fw-bold"> Messages </p>
             <div class="list-group">
                 <!-- Received Message -->
                 <% @messages.each do |message| %>
@@ -35,10 +35,11 @@
     </div>
     <div class="col-md-3">
         <div class="card p-3" style="height: 400px;">
+            <p class="text-center fw-bold"> Users </p>
             <ul class="list-group">
-                <li class="list-group-item">An item</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
+                <% @users.each do |user| %>
+                    <li class="list-group-item"><%= user.username %></li>
+                <% end %>
             </ul>
         </div>
     </div>

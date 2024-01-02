@@ -5,10 +5,10 @@
     <div class="col-md-6 d-flex flex-column align-items-center" style="border-right: 1px solid rgba(0, 0, 0, 0.1);">
       <!-- Login Form -->
         <div class="card-body w-50">
-            <%= form_for(:session, url: login_path, html: { class: "text-center" }) do |form| %>
+            <%= form_for(:session, url: login_path, html: { class: "text-center", 'data-turbo': 'false' }) do |form| %>
                 <div class="mb-3">
                 <%= form.label :username, class: 'form-label fw-bold' %>
-                <%= form.text_field :email, id: 'loginEmail', class: 'form-control', placeholder: 'Enter username' %>
+                <%= form.text_field :username, id: 'loginEmail', class: 'form-control', placeholder: 'Enter username' %>
                 </div>
                 <div class="mb-3">
                 <%= form.label :password, class: 'form-label fw-bold' %>
