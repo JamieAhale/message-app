@@ -1,1 +1,53 @@
-This is root page
+<div class="container">
+    <div class="row">
+        <div class="card col-sm-3 mt-3 mb-3 mx-auto">
+            <div class="card-header text-center d-flex align-items-center justify-content-center">
+                <%= image_tag 'favicon.ico' %>
+            </div>
+            <div class="card-body">
+                <p class="fs-3 text-center fw-bold"> Send a Message </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+        <div class="card px-5 pb-5 pt-3" style="height: 450px;">
+            <p class="text-center"> Messages </p>
+            <div class="list-group">
+                <!-- Received Message -->
+                <div class="list-group-item">
+                    <div class="d-flex w-100 justify-content-start">
+                    <strong class="me-2">Username:</strong>
+                    <p>Message content here...</p>
+                    </div>
+                </div>
+                    <!-- Sent Message -->
+                <div class="list-group-item">
+                    <div class="d-flex w-100 justify-content-end">
+                    <strong class="me-2">Username:</strong>
+                    <p>Message content here...</p>
+                    </div>
+                </div>
+                <!-- Repeat for more messages -->
+            </div>
+            <form class="d-flex mt-3">
+                <input type="text" class="form-control" placeholder="Type a message">
+                <button type="submit" class="btn btn-primary ms-2">Send</button>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card p-3" style="height: 400px;">
+            <ul class="list-group">
+                <li class="list-group-item">An item</li>
+                <li class="list-group-item">A second item</li>
+                <li class="list-group-item">A third item</li>
+            </ul>
+        </div>
+    </div>
+  </div>
+</div>
+
