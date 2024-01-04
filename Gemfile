@@ -37,6 +37,9 @@ gem "bcrypt", "~> 3.1.7"
 
 gem 'hirb'
 
+gem 'redis'
+
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mswin mswin64 mingw x64_mingw jruby ]
 
@@ -71,6 +74,11 @@ group :test do
   gem "selenium-webdriver"
 
 end
+
+group :production do
+  gem 'pg'
+end
+
 
 gem "cssbundling-rails", "~> 1.3"
 

@@ -152,6 +152,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.16.0-x86_64-linux)
       racc (~> 1.4)
+    pg (1.5.4)
     psych (5.1.2)
       stringio
     public_suffix (5.0.4)
@@ -198,6 +199,10 @@ GEM
     rake (13.1.0)
     rdoc (6.6.2)
       psych (>= 4.0.0)
+    redis (5.0.8)
+      redis-client (>= 0.17.0)
+    redis-client (0.19.1)
+      connection_pool
     regexp_parser (2.8.3)
     reline (0.4.1)
       io-console (~> 0.5)
@@ -257,8 +262,10 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   jsbundling-rails (~> 1.2)
+  pg
   puma (>= 5.0)
   rails (~> 7.1.2)
+  redis
   selenium-webdriver
   sprockets-rails
   sqlite3 (~> 1.4)
