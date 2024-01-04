@@ -16,18 +16,16 @@
     <div class="col-md-9">
         <div class="card px-5 pb-5 pt-3" style="height: 450px;">
             <p class="text-center fw-bold"> Messages </p>
-            <div class="list-group">
+            <div class="list-group overflow-scroll" id="chatbox">
                 <!-- Received Message -->
-                <% @messages.each do |message| %>
-                    <div class="list-group-item">
-                        <div class="d-flex w-100 justify-content-start">
-                            <strong class="me-2"><%= message.user.username %>:</strong>
-                            <p><%= message.body %></p>
-                        </div>
-                    </div>
-                <% end %>
+                <%= turbo_stream_from "chatroom" %>
+                <div id="messages">
+                    <% @messages.each do |message| %>
+                        <%= render 'messages/message', message: message %>
+                    <% end %>
+                </div>
             </div>
-            <%= form_for(@message, html: {class: "mt-3"}, url: message_path) do |f| %>
+            <%= form_for(@message, html: {class: "mt-3", id: "message_form"}, url: message_path, remote: true) do |f| %>
                 <div class="row g-2 align-items-center">
                     <div class="col">
                         <%= f.text_field :body, placeholder: "Type a message...", class: "form-control" %>
@@ -43,7 +41,7 @@
     <div class="col-md-3">
         <div class="card p-3" style="height: 400px;">
             <p class="text-center fw-bold"> Users </p>
-            <ul class="list-group">
+            <ul class="list-group overflow-scroll">
                 <% @users.each do |user| %>
                     <li class="list-group-item"><%= user.username %></li>
                 <% end %>
@@ -53,3 +51,26 @@
   </div>
 </div>
 
+<script>
+    window.onload = function() {
+        var chatbox = document.getElementById('chatbox');
+        chatbox.scrollTop = chatbox.scrollHeight;
+    };
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('message_form').addEventListener('submit', function() {
+        setTimeout(function() {
+            document.getElementById('message_form').reset();
+        }, 0);
+        });
+    });
+</script>
+
+<script>
+  function scrollToBottom() {
+    var chatbox = document.getElementById('chatbox');
+    chatbox.scrollTop = chatbox.scrollHeight;
+    <%= puts "success" %>
+  }
+</script>

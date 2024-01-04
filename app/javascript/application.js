@@ -2,3 +2,21 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 import * as bootstrap from "bootstrap"
+import "./channels"
+
+
+window.scrollToBottom = function() {
+    var chatbox = document.getElementById('chatbox');
+    chatbox.scrollTop = chatbox.scrollHeight;
+  }
+
+  document.addEventListener('turbo:load', function() {
+    scrollToBottom();
+});
+
+
+
+  
+
+
+
