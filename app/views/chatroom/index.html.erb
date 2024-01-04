@@ -16,10 +16,10 @@
     <div class="col-md-9">
         <div class="card px-5 pb-5 pt-3" style="height: 450px;">
             <p class="text-center fw-bold"> Messages </p>
-            <div class="list-group overflow-scroll" id="chatbox">
+            <div class="list-group overflow-scroll" style="overflow-y: scroll;" id="chatbox">
                 <!-- Received Message -->
                 <%= turbo_stream_from "chatroom" %>
-                <div id="messages">
+                <div class="text-end" id="messages">
                     <% @messages.each do |message| %>
                         <%= render 'messages/message', message: message %>
                     <% end %>
@@ -67,10 +67,5 @@
     });
 </script>
 
-<script>
-  function scrollToBottom() {
-    var chatbox = document.getElementById('chatbox');
-    chatbox.scrollTop = chatbox.scrollHeight;
-    <%= puts "success" %>
-  }
-</script>
+
+

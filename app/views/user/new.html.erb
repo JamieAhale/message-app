@@ -1,0 +1,18 @@
+<h3 class="text-center mt-5 w-4"> Sign up</h3>
+<div class="row card">
+    <div class="col-md-6 mx-auto">
+        <div class="card-body">
+            <%= form_for(@user, url: signup_path, html: { class: "text-center", 'data-turbo': 'false' }) do |form| %>
+                <div class="mb-3">
+                    <%= form.label :username, class: 'form-label fw-bold' %>
+                    <%= form.text_field :username, id: 'loginEmail', class: 'form-control', placeholder: 'Enter username' %>
+                </div>
+                <div class="mb-3">
+                    <%= form.label :password, class: 'form-label fw-bold' %>
+                    <%= form.password_field :password, id: 'loginPassword', class: 'form-control', placeholder: 'Password' %>
+                </div>
+                <%= form.button 'Sign Up', class: 'btn btn-primary' %>
+            <% end %>
+        </div>
+    </div>
+</div>

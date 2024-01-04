@@ -4,15 +4,18 @@ import "./controllers"
 import * as bootstrap from "bootstrap"
 import "./channels"
 
-
-window.scrollToBottom = function() {
-    var chatbox = document.getElementById('chatbox');
+function scrollToBottom() {
+  console.log("Calling scrollToBottom...");
+  var chatbox = document.getElementById('chatbox');
+  if (chatbox) {
+    console.log("Chatbox found. Scroll Height:", chatbox.scrollHeight);
     chatbox.scrollTop = chatbox.scrollHeight;
+    console.log("Chatbox scrollTop set to:", chatbox.scrollTop);
+  } else {
+    console.log("Chatbox not found.");
   }
+}
 
-  document.addEventListener('turbo:load', function() {
-    scrollToBottom();
-});
 
 
 
